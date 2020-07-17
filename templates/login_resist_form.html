@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>Hufs crawling Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+		<style type="text/css">
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.wrap {
+    height: 100%;
+    width: 100%;
+    background-image: url("{{url_for('static', filename='hufs.jpg')}}");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.form-wrap {
+    width: 450px;
+    height: 600px;
+    position: relative;
+    margin: 6% auto;
+    background: #FFFFFF;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.button-wrap {
+    width: 230px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 600px 9px #fcae8f;
+    border-radius: 30px;
+}
+.togglebtn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+.social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+.social-icons img {
+    width: 120px ;
+    cursor: pointer;
+}
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.submit {
+    margin: 30px 10px 30px 0;
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: linear-gradient(to right,#008000, #008000);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+span {
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+#login {
+    left: 50px;
+}
+#register {
+    left: 450px;
+}
+    </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="form-wrap">
+                <div class="button-wrap">
+                    <div id="btn"></div>
+		    <!--<button class="togglebtn">로그인</button>-->
+                </div>
+                <div class="social-icons">
+			<a href="http://www.hufs.ac.kr/ "><img src="{{url_for('static', filename='post.jpg')}}" /></a>
+
+                </div>
+		<form action = "/result" method = "post" id = "login">
+                    <input type="text" class="input-field" placeholder="학년번호 입력" name = "username" required>
+                    <input type="password" class="input-field" placeholder="비밀번호 입력" name = "password" required>
+		    <div id="showme" style="display:none;">.</div>
+		    <div id="loadingGif" style="display:none"><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></div>
+		    <!--<button class="submit">Submit</button>-->
+		    <form action="#" method="POST" id="hello" onsubmit="return false;">
+			<input class="submit" type="submit" name="submit" id="Login" value="Sign in" width= 100% height= 100%  border="0" tabindex="5" onclick="showDiv()">
+			</form>
+                </form>
+            </div>
+        </div>
+        <script>
+            var x = document.getElementById("login");
+            var y = document.getElementById("register");
+            var z = document.getElementById("btn");
+            
+            
+            function login(){
+                x.style.left = "50px";
+                y.style.left = "450px";
+                z.style.left = "0";
+            }
+
+            function register(){
+                x.style.left = "-400px";
+                y.style.left = "50px";
+                z.style.left = "110px";
+            }
+        </script>
+	<script type = "text/javascript">
+            function showDiv() {
+                document.getElementById('Login').style.display = "none";
+	        document.getElementById('loadingGif').style.display = "block";
+                setTimeout(function() {
+                                 document.getElementById('loadingGif').style.display = "none";
+                                 document.getElementById('showme').style.display = "block";
+	                         },10000);
+	             }
+        </script>	
+    </body>
+</html>

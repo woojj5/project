@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<!--<meta name="viewport" content="weight=device-weight, initial-scale= 1.0">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<style type = "text/css">
+		<style type="text/css">
+		html, body { 
+			font-family: vendra, gulim, dotum, sens-serif; 
+			font-size:12px; 
+		}
+		._waupst
+		{
+    			top: 0%;
+			left: 0%;
+			position: absolute;
+                }
+		.wrap{
+			height: 120%;
+			width: 100%;                                                         	
+			background-image: url("{{url_for('static', filename='thufs.jpg')}}"); 
+			background-position: center;
+			background-size: cover;
+			position: absolute;
+		}
+		.wrapper{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%, -50%);
+		}
+		#table1 tr th{
+			font-weight:bold;
+		}
+		#table1 tr th, #talbe1 tr td{
+			padding:5px;
+		}
+		#table1 td{
+			border: 5px solid #C1DAD7;
+			background:#74c476;
+			width: 50px;
+			height: 50px;
+		}
+		#table1 th{
+			border: 5px solid #C1DAD7;
+			background:#a4e56d;
+			width: 50px;
+			height: 50px;
+		}
+		#table2{
+			background: #808080;
+		}
+		#table3{
+			background: #808080;
+		}
+		.outro{
+			position:relative;
+			bottom:1px;
+		}
+	</style>
+	<body>
+		<h2> {{ssn}}학번 {{name}}님 환영합니다! </h2>
+		<p> 1전공 : {{college}} {{major}} <br> {{sub}} : {{sub_major}}</br> <br>누적 방문자 수 : {{visit}}</br></p>
+                <script id="_waupst">var _wau = _wau || []; _wau.push(["small", "nslmqbj6to", "pst"]);</script><script async src="//waust.at/s.js"></script>
+		<!--<p>누적 방문자 수 : {{visit}}</p>-->
+		<div class ="wrap">
+			<div class ="wrapper">
+				<p><B>졸업까지 남은 학점은 </B></p>
+				<table id = table1 style='text-align: center;'>
+					<tr>
+						{% for key, value in result.items() %}
+						<th>{{key}}</th>
+						{% endfor %}
+					</tr>
+					<tr>
+						{% for key, value in result.items() %}
+						<td>{{value}}</td>
+						{% endfor %}
+					</tr>
+				</table>
+				<p>졸업하려면 이만큼의 학점을 들어야해요!</p>
+				<table id = table2 style='text-align: center;'>
+                        	        <tr>
+                                        	{% for key, value in req.items() %}
+	                                       	<th>{{key}}</th>
+		                                {% endfor %}
+        	                        </tr>
+               		                <tr>
+                        		        {% for key, value in req.items() %}
+                                	        <td>{{value}}</td>
+	                                       	{% endfor %}
+		                        </tr>
+        		        </table>
+				<p>지금까지는 이만큼 들었어요!</p>
+				<table id = table3 style='text-align: center;'>
+                               		<tr>
+		                                {% for key, value in grade.items() %}
+        	                                <th>{{key}}</th>
+               		                        {% endfor %}
+	                	        </tr>
+        	                        <tr>
+                	               	        {% for key, value in grade.items() %}
+                       	                	<td>{{value}}</td>
+	                               	        {% endfor %}
+		                        </tr>
+        		        </table>
+				<div class = "outro">
+					<br></br><br></br><br></br>
+					<p><small>*세부전공, 교직이수는 제공되지 않습니다. ㅠ_ㅠ<br></br>
+						*대학영어(실용영어)는 교양학점에 포함됩니다~!<br></br>
+						-오류관련, 기타문의-<br></br>
+						contact: chanyub1008@naver.com</small></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

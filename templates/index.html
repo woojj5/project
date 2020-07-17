@@ -1,5 +1,42 @@
-<form method="POST" action = "/result">
-       <input type="text" placeholder="student#" name="username" required>
-       <input type="password" placeholder="password" name="password" required>
-       <button type="submit">Sign in</button>
-</form>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type = "text/javascript">
+		function showDiv() {
+			document.getElementById('Login').style.display = "none";	
+			document.getElementById('loadingGif').style.display = "block";	
+			setTimeout(function() {	
+				document.getElementById('loadingGif').style.display = "none";
+				document.getElementById('showme').style.display = "block";
+			},10000);   
+		}
+	</script>
+	<head>
+		<body>
+		<meta charset="utf-8">
+		<title>HUFS Login </title>
+		<!--<div class="background">
+			<img src="{{url_for('static', filename='hufs.jpg')}}" />
+		</div>-->
+		<form action = "/result" method = "post" id = "login">
+			<div class = "login_box">
+				<h1> Login </h1>
+				<div class = textbox">
+					<input type="text" id = 'name' size = "15" placeholder="학번" name="username" required>
+				</div>
+
+				<div class = "textbox">
+					<input type="password" id = 'password' size = "15" placeholder="비밀번호" name="password" required>
+				</div>
+			</div>
+			<!--<button type="submit" onclick = "loader" >Sign in</button>-->
+			<div id="showme" style="display:none;">.</div>
+			<div id="loadingGif" style="display:none"><img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></div>
+			<form action="#" method="POST" id="hello" onsubmit="return false;">
+				<input class="btn_green_white_innerfade btn_medium" type="submit" name="submit" id="Login" value="Sign in" width= 100% height= 100%  border="0" tabindex="5" onclick="showDiv()">
+			</form>
+			<!--<img src="{{url_for('static', filename='hufs.jpg')}}" />-->
+		</form>
+		</body>
+	</head>
+</html>
+
